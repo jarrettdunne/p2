@@ -6,11 +6,8 @@
 ## **Wireframes**
 ### Mockups of your app on desktop, tablet, and mobile.
 
-### ***Desktop***
-[imageAlt]()
-
-### ***Tablet***
-[imageAlt]()
+### ***Desktop & Tablet***
+![Imgur](https://i.imgur.com/KsuRkd6.png)
 
 ### ***Mobile***
 ![Imgur](https://i.imgur.com/IWOYNrk.png)
