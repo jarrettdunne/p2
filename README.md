@@ -13,11 +13,11 @@
 [imageAlt]()
 
 ### ***Mobile***
-[imageAlt](https://imgur.com/IWOYNrk)
+![Imgur](https://i.imgur.com/IWOYNrk.png)
 
 ## **Component Hierarchy**
 ### A visual tree of your components, depicting the parent/child relationships, as well as an indication of which will be class components, requiring state, and which will be functional components, taking props.
-[imageAlt]()
+![Imgur](https://i.imgur.com/IIDSLz0.png)
     
 ## **API**
 ### How you will be using Airtable to handle your data, as well as a sample data pull from your Airtable database.
