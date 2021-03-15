@@ -1,10 +1,12 @@
-# **Recipe**
+# **Recipes**
 
 ## **Description**
-### 4 to 5 sentences in non-technical speak summarizing the features, functions, and goals.
+This application will provide a simplistic approach to recording, viewing and editing food recipes by utilizing a REACT component framework and [](airtable.com) as API database. Specifically, this app will use class based components in a manner similar to object oriented programming. 
 
 ## **Wireframes**
-### Mockups of your app on desktop, tablet, and mobile.
+The following wireframes illustrate the conceptual minimum viable product for the fullpage, tablet and mobile screens. Since the tablet version of the site will only have minor changes to the aspect ratio and font size, these differences are negligible and a single wwireframe will be used for both. 
+
+It is important to note that these wireframes do not include illustrations of any post MVP attributes. 
 
 ### ***Desktop & Tablet***
 ![Imgur](https://i.imgur.com/KsuRkd6.png)
@@ -13,7 +15,7 @@
 ![Imgur](https://i.imgur.com/IWOYNrk.png)
 
 ## **Component Hierarchy**
-### A visual tree of your components, depicting the parent/child relationships, as well as an indication of which will be class components, requiring state, and which will be functional components, taking props.
+
 ![Imgur](https://i.imgur.com/IIDSLz0.png)
     
 ## **API**
@@ -24,7 +26,7 @@
 Sample data
 ```
 
-## **MVP**
+## **Minimum Viable Product**
 ### Your goals for MVP, including the minimum, need-to-have features of your app.
 ### MVP
 - a
