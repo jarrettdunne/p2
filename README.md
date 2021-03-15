@@ -16,7 +16,7 @@ It is important to note that these wireframes do not include illustrations of an
 
 ## **Component Hierarchy**
 
-![Imgur](https://i.imgur.com/IIDSLz0.png)
+![Imgur](https://i.imgur.com/ghJnMJx.png)
     
 ## **API**
 Using airtable, each recipe will be stored as an object with keys for the name of the recipe, ingredients, directions, prep time, cook time, meal type, and additional notes.  
