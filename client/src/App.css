@@ -15,3 +15,12 @@ a {
 body {
   min-width: 325px;
 }
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar-recipe {
+  /* max-width: 350px; */
+}

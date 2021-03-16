@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class Form extends Component {
+class FormAdd extends Component {
   constructor(props) {
     super(props);
 
@@ -44,8 +44,8 @@ class Form extends Component {
   }
 }
 
-Form.propTypes = {
+FormAdd.propTypes = {
 
 };
 
-export default Form;
+export default FormAdd;

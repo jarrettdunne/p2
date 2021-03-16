@@ -1,0 +1,8 @@
+.ingredients-form li {
+  width: 325px;
+}
+
+.directions-form textarea {
+  resize: none;
+  width: 325px;
+}

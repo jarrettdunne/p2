@@ -7,7 +7,7 @@ import axios from "axios"
 import Navbar from "./components/navbar/Navbar.jsx"
 import DisplayMain from "./components/display/DisplayMain.jsx"
 import DisplayFull from "./components/display/DisplayFull.jsx"
-import Form from "./components/form/Form.jsx"
+import FormEdit from "./components/form/FormEdit.jsx"
 
 import './App.css';
 
@@ -58,10 +58,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Link to="/">
-          <Navbar />
-        </Link>
-        <Route exact  path="/">
+        <div className="navbar">
+          <Navbar recipes={this.state.data}/>
+        </div>
+        <Route exact path="/">
           <div className="display-main">
             {this.state.data.map((i) => (
               <Link to={`/recipe/${i.id}`}>
@@ -70,8 +70,11 @@ class App extends Component {
             ))}
           </div>
         </Route>
-        <Route path="/recipe/:id" >
+        <Route exact path="/recipe/:id" >
           <DisplayFull recipes={this.state.data}/>
+        </Route>
+        <Route path="/recipe/:id/edit">
+          <FormEdit recipes={this.state.data}/>
         </Route>
       </div>
     );

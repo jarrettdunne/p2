@@ -38,10 +38,9 @@ class DisplayFull extends Component {
 
   }
 
-  render() {
+  renderValid() {
     return (
       <div>
-        <h2>{this.recipe.fields.name.toLowerCase()}</h2>
         <div className="recipe-times"></div>
         <div className="recipe-contents">
           <div className="ingredients">
@@ -59,6 +58,20 @@ class DisplayFull extends Component {
         </div>
       </div>
     );
+  }
+
+  renderInvalid() {
+    return (
+      <p>nothing to see here</p>
+    )
+  }
+
+  render() {
+    if (this.recipe) {
+      return this.renderValid()
+    } else {
+      return this.renderInvalid()
+    }
   }
 }
 
