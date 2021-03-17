@@ -8,6 +8,8 @@ import Navbar from "./components/navbar/Navbar.jsx"
 import DisplayMain from "./components/display/DisplayMain.jsx"
 import DisplayFull from "./components/display/DisplayFull.jsx"
 import FormEdit from "./components/form/FormEdit.jsx"
+import FormAdd from "./components/form/FormAdd.jsx"
+import Footer from "./components/footer/Footer.jsx"
 
 import './App.css';
 
@@ -73,9 +75,13 @@ class App extends Component {
         <Route exact path="/recipe/:id" >
           <DisplayFull recipes={this.state.data}/>
         </Route>
-        <Route path="/recipe/:id/edit">
+        <Route exact path="/recipe/:id/edit">
           <FormEdit recipes={this.state.data}/>
         </Route>
+        <Route exact path="/recipe/add">
+          <FormAdd />
+        </Route>
+        <Footer />
       </div>
     );
   }

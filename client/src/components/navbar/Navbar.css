@@ -1,10 +1,10 @@
-.icon-div {
+nav {
   display: flex;
-  max-width: max-content;
 }
 
-.icon-div div {
-  max-width: 125px;
+.icon-div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .icon-plus img {

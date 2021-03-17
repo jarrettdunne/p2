@@ -19,7 +19,7 @@ class DisplayMain extends Component {
   }
 
   componentDidMount() {
-    console.log(this.name)
+    
   }
 
   componentWillReceiveProps(nextProps) {

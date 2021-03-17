@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { withRouter } from "react-router"
 
 import PropTypes from 'prop-types';
+
+import "./DisplayFull.css"
 
 class DisplayFull extends Component {
   constructor(props) {
@@ -41,6 +43,16 @@ class DisplayFull extends Component {
   renderValid() {
     return (
       <div>
+        <div className="recipe-name-edit">
+          <h2>{this.recipe.fields.name.toLowerCase()}</h2>
+          <img className="vertical-line" src="https://i.imgur.com/5V9fhc5.png" title="source: imgur.com" />
+          <Link to={`/recipe/${this.recipe.id}/edit`}>
+            <h2 className="display-icon-div">
+              edit
+              <div className="icon-plus"><a href="https://imgur.com/YruOcld"><img src="https://i.imgur.com/YruOcld.png" title="source: imgur.com" /></a></div>
+            </h2>
+          </Link>
+        </div>
         <div className="recipe-times"></div>
         <div className="recipe-contents">
           <div className="ingredients">
@@ -62,7 +74,7 @@ class DisplayFull extends Component {
 
   renderInvalid() {
     return (
-      <p>nothing to see here</p>
+      <p className="nothing">nothing to see here</p>
     )
   }
 

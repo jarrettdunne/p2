@@ -1,0 +1,13 @@
+{
+  "type" : [
+    "breakfast",
+    "lunch",
+    "dinner",
+    "snack",
+    "salad",
+    "dessert",
+    "side",
+    "appetizer",
+    "brunch"
+  ]
+}

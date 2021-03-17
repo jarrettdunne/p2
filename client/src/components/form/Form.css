@@ -1,8 +1,108 @@
-.ingredients-form li {
-  width: 325px;
+textarea {
+  border: #171111 solid 2px;
+}
+
+input[type="text"] {
+  padding: 5px;
+  border: #171111 solid 2px;
+  width: 90%;
+}
+
+input[type="submit"] {
+  display: inline-block;
+  padding: 0.35em 1.2em;
+
+  margin: 0 0.3em 0.3em 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: larger;
+  color: #171111;
+  background-color: white;
+  text-align: center;
+}
+
+.editing {
+  display: flex;
+  align-items: center;
+}
+
+.recipe-add-name {
+  max-width: 100%;
+}
+
+.recipe-edit-name {
+  max-width: max-content;
+}
+
+.vertical-line {
+  /* max-width: 10px; */
+  max-height: 65px;
+  padding: 3px;
+}
+
+.times-form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.ingredients-form textarea {
+  resize: vertical;
+  /* width: 325px; */
 }
 
 .directions-form textarea {
-  resize: none;
-  width: 325px;
+  resize: vertical;
+  /* width: 325px; */
+}
+
+.inputs-main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media screen and (min-width: 991px) {
+  .inputs-main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  textarea {
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  /* start of large tablet styles */
+  .inputs-main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  textarea {
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  /* start of medium tablet styles */
+  .inputs-main {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  textarea {
+    width: 95%;
+  }
+  .times-form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 479px) {
+  /* start of phone styles */
+  .inputs-main {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  textarea {
+    width: 95%;
+  }
+
+  .times-form {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

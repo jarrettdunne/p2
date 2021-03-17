@@ -16,13 +16,20 @@ class Navbar extends Component {
   }
 
   main() {
-    if (this.props.message) {
-      return (
+    return (
+      <nav>
         <Link to="/">
-          <h1>{this.props.message.toLowerCase()}</h1>
+          <h1>recipes</h1>
         </Link>
-      )
-    }
+        <img className="vertical-line" src="https://i.imgur.com/5V9fhc5.png" title="source: imgur.com" />
+        <Link to="/recipe/add">
+          <h1 className="icon-div">
+            add
+            <div className="icon-plus"><img src="https://i.imgur.com/YruOcld.png" title="source: imgur.com" /></div>
+          </h1>
+        </Link>
+      </nav>
+    )
   }
 
   add() {
