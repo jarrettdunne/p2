@@ -57,7 +57,7 @@ class FormEdit extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-
+    this.render()
   }
 
   componentWillUnmount() {
@@ -126,9 +126,10 @@ class FormEdit extends Component {
                     id=""
                     cols="25"
                     rows="15"
+                    defaultValue={this.state.ingredients}
                     onChange={(e) => this.setState({ ingredients: e.target.value })}
                   >
-                    {this.state.ingredients}
+                    
                   </textarea>
                 </ul>
               </div>
@@ -143,9 +144,10 @@ class FormEdit extends Component {
                   id=""
                   cols="25"
                   rows="15"
+                  defaultValue={this.state.directions}
                   onChange={(e) => this.setState({ directions: e.target.value })}
                 >
-                  {this.state.directions}
+                
                 </textarea>
               </div>
               <div className="directions-add"></div>
@@ -159,9 +161,10 @@ class FormEdit extends Component {
                   id=""
                   cols="25"
                   rows="5"
+                  defaultValue={this.state.notes}
                   onChange={(e) => this.setState({ notes: e.target.value })}
                 >
-                  {this.state.notes}
+                  
                 </textarea>
               </div>
             </div>

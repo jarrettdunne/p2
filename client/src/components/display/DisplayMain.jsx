@@ -9,8 +9,6 @@ class DisplayMain extends Component {
   constructor(props) {
     super(props);
     this.recipe = props.recipe.fields
-    console.log(this.recipe.name)
-
     this.totalTime = totalTime.bind(this)
   }
 
@@ -19,7 +17,7 @@ class DisplayMain extends Component {
   }
 
   componentDidMount() {
-    console.log(totalTime(this.recipe.prep, this.recipe.cook))
+    
   }
 
   componentWillReceiveProps(nextProps) {
