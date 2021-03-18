@@ -14,7 +14,6 @@ import Footer from "./components/footer/Footer.jsx"
 import './App.css';
 
 import { baseURL, config } from "./services"
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -30,7 +29,7 @@ class App extends Component {
   }
 
   toggleFetch() {
-    
+
   }
 
   componentWillMount() {
@@ -68,6 +67,9 @@ class App extends Component {
           <Navbar recipes={this.state.data}/>
         </div>
         <Route exact path="/">
+          <div>
+            <option></option>
+          </div>
           <div className="display-main">
             {this.state.data.map((i) => (
               <Link to={`/recipe/${i.id}`}>
