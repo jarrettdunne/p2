@@ -19,9 +19,14 @@ body {
 }
 
 footer {
-  padding: 20px;
+  padding: 80px;
 }
 
+ul, ol {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
 .navbar {
   display: flex;
   flex-direction: row;
@@ -34,3 +39,4 @@ footer {
 .nothing {
   color: white;
 }
+

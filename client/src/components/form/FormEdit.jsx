@@ -1,22 +1,39 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router"
 import { useParams } from "react-router-dom"
+import {baseURL, config} from "../../services"
 
+import axios from "axios"
 import PropTypes from 'prop-types';
 
 import "./Form.css"
 import mealTypes from "../../data/mealTypes.json"
+
+// export const Component = withRouter(({history, location}) => {})
 
 class FormEdit extends Component {
   constructor(props) {
     super(props);
     if (this.props.match.params.id) {
       this.recipe = props.recipes.find((i) => i.id === this.props.match.params.id)
+      
+      this.state = {
+        name: this.recipe.fields.name,
+        ingredients: this.recipe.fields.ingredients,
+        directions: this.recipe.fields.directions,
+        type: this.recipe.fields.type,
+        prep: this.recipe.fields.prep,
+        cook: this.recipe.fields.cook,
+        notes: this.recipe.fields.notes,
+      }
     }
+
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleSubmit(e) {
+  async handleSubmit(e) {
     e.preventDefault()
+    await axios.put(baseURL, { fields: this.state }, config)
   }
 
   componentWillMount() {
@@ -32,7 +49,7 @@ class FormEdit extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-
+    return true
   }
 
   componentWillUpdate(nextProps, nextState) {
@@ -53,38 +70,66 @@ class FormEdit extends Component {
         <form className="form-main" onSubmit={this.handleSubmit}>
           <div className="editing">
             <div>
-              <input className="recipe-edit-name" type="text" name="" id="" value={this.recipe.fields.name}/>
+              <input
+                className="recipe-edit-name"
+                type="text"
+                name=""
+                id=""
+                value={this.state.name}
+                onChange={(e) => this.setState({name: e.target.value})}
+              />
             </div>
-            <img className="vertical-line" src="https://i.imgur.com/5V9fhc5.png" title="source: imgur.com" />
-            <h2>editing</h2>
-            <img className="vertical-line" src="https://i.imgur.com/5V9fhc5.png" title="source: imgur.com" />
-            <input type="submit" value="submit"/>
+            <input
+              type="submit"
+              value="submit changes"
+            />
           </div>
-          <div className="times-form">
+          <div className="misc-form">
             <div className="prep-time">
-              <input type="text" name="" id=""/>
+              <input
+                type="text"
+                name=""
+                id=""
+                value={this.state.prep}
+                onChange={(e) => this.setState({prep: e.target.value})}
+              />
             </div>
             <div className="cook-time">
-              <input type="text" name="" id=""/>
+              <input
+                type="text"
+                name=""
+                id=""
+                value={this.state.cook}
+                onChange={(e) => this.setState({cook: e.target.value})}
+              />
             </div>
-          </div>
-          <div className="type-form">
-            <select name="" id="">
-              {mealTypes.type.map((i) => (
-                <option value={i}>{i}</option>
-              ))}
-            </select>
+            <div className="type-form">
+              <select name="" id="">
+              {mealTypes.type.map((i) => {
+                if (i === this.recipe.fields.type) {
+                  return <option selected={true} value={i}>{i}</option>
+                } else {
+                  return <option selected={false} value={i}>{i}</option>
+                }
+              })}
+              </select>
+            </div>
           </div>
           <div className="inputs-main">
             <div className="ingredients-form">
               <h3>ingredients</h3>
               <div className="ingredient-inputs-main">
                 <ul>
-                  {this.recipe.fields.ingredients.split('\n').map((i) => (
-                    <li>
-                      <input type="text" name="" id="" value={i}/>
-                    </li>
-                  ))}
+                  <textarea
+                    required
+                    name=""
+                    id=""
+                    cols="25"
+                    rows="15"
+                    onChange={(e) => this.setState({ ingredients: e.target.value })}
+                  >
+                    {this.state.ingredients}
+                  </textarea>
                 </ul>
               </div>
               <div className="ingredients-add"></div>
@@ -92,15 +137,33 @@ class FormEdit extends Component {
             <div className="directions-form">
               <h3>directions</h3>
               <div className="directions-inputs-main">
-                <ol>
-                  {this.recipe.fields.directions.split('\n').map((i) => (
-                    <li>
-                      <textarea className="directions-textarea" name="" id="" cols="30" rows="5" >{i}</textarea>
-                    </li>
-                  ))}
-                </ol>
+                <textarea
+                  required
+                  name=""
+                  id=""
+                  cols="25"
+                  rows="15"
+                  onChange={(e) => this.setState({ directions: e.target.value })}
+                >
+                  {this.state.directions}
+                </textarea>
               </div>
               <div className="directions-add"></div>
+            </div>
+            <div className="notes-form">
+              <h3>notes</h3>
+              <div className="directions-inputs-main">
+                <textarea
+                  required
+                  name=""
+                  id=""
+                  cols="25"
+                  rows="5"
+                  onChange={(e) => this.setState({ notes: e.target.value })}
+                >
+                  {this.state.notes}
+                </textarea>
+              </div>
             </div>
           </div>
           

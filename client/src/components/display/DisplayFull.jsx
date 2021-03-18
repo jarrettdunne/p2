@@ -4,6 +4,8 @@ import { withRouter } from "react-router"
 
 import PropTypes from 'prop-types';
 
+import totalTime from "../../data/functions"
+
 import "./DisplayFull.css"
 
 class DisplayFull extends Component {
@@ -47,13 +49,26 @@ class DisplayFull extends Component {
           <h2>{this.recipe.fields.name.toLowerCase()}</h2>
           <img className="vertical-line" src="https://i.imgur.com/5V9fhc5.png" title="source: imgur.com" />
           <Link to={`/recipe/${this.recipe.id}/edit`}>
-            <h2 className="display-icon-div">
-              edit
+            <div className="icon-div">
+              <h2>edit</h2>
               <div className="icon-plus"><a href="https://imgur.com/YruOcld"><img src="https://i.imgur.com/YruOcld.png" title="source: imgur.com" /></a></div>
-            </h2>
+            </div>
           </Link>
         </div>
-        <div className="recipe-times"></div>
+        <div className="recipe-times">
+          <div className="time-prep time-div">
+            <h3>prep time</h3>
+            <p>{this.recipe.fields.prep}</p>
+          </div>
+          <div className="time-cook time-div">
+            <h3>cook time</h3>
+            <p>{this.recipe.fields.cook}</p>
+          </div>
+          <div className="time-total time-div">
+            <h3>total time</h3>
+            <p>{totalTime(this.recipe.fields.prep, this.recipe.fields.cook)}</p>
+          </div>
+        </div>
         <div className="recipe-contents">
           <div className="ingredients">
             <h3>ingredients</h3>

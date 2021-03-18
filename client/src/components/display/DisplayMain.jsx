@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import totalTime from "../../data/functions"
+
 import "./DisplayMain.css"
 
 class DisplayMain extends Component {
@@ -8,10 +10,8 @@ class DisplayMain extends Component {
     super(props);
     this.recipe = props.recipe.fields
     console.log(this.recipe.name)
-  }
 
-  totalTime(prep, cook) {
-    return `${cook} & ${prep}`
+    this.totalTime = totalTime.bind(this)
   }
 
   componentWillMount() {
@@ -19,7 +19,7 @@ class DisplayMain extends Component {
   }
 
   componentDidMount() {
-    
+    console.log(totalTime(this.recipe.prep, this.recipe.cook))
   }
 
   componentWillReceiveProps(nextProps) {

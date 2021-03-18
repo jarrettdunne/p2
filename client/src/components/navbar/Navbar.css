@@ -1,13 +1,27 @@
 nav {
   display: flex;
+  align-items: center;
 }
 
 .icon-div {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  align-items: center;
 }
 
-.icon-plus img {
-  max-width: 35px;
+
+
+:root {
+  --dot-size: 16px;
+  --icon-size: 35px;
 }
 
+.dot {
+  max-width: var(--dot-size);
+  max-height: var(--dot-size);
+}
+
+.icon-div img {
+  max-width: var(--icon-size);
+  max-height: var(--icon-size);
+  align-items: center;
+}

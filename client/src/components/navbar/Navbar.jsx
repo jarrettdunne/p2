@@ -21,12 +21,12 @@ class Navbar extends Component {
         <Link to="/">
           <h1>recipes</h1>
         </Link>
-        <img className="vertical-line" src="https://i.imgur.com/5V9fhc5.png" title="source: imgur.com" />
+        <img className="dot" src="https://i.imgur.com/PTqYVhG.png" title="source: imgur.com" />
         <Link to="/recipe/add">
-          <h1 className="icon-div">
-            add
-            <div className="icon-plus"><img src="https://i.imgur.com/YruOcld.png" title="source: imgur.com" /></div>
-          </h1>
+          <div className="icon-div">
+            <h1>add</h1>
+            <img src="https://i.imgur.com/YruOcld.png" title="source: imgur.com" />
+          </div>
         </Link>
       </nav>
     )

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import "./Footer.css"
+
 class Footer extends Component {
   constructor(props) {
     super(props);
@@ -20,7 +22,7 @@ class Footer extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-
+    return true
   }
 
   componentWillUpdate(nextProps, nextState) {

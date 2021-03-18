@@ -4,14 +4,14 @@ textarea {
 
 input[type="text"] {
   padding: 5px;
-  border: #171111 solid 2px;
+  border-bottom: #171111 solid 2px;
+  border-left: #171111 solid 2px;
   width: 90%;
 }
 
 input[type="submit"] {
   display: inline-block;
   padding: 0.35em 1.2em;
-
   margin: 0 0.3em 0.3em 0;
   box-sizing: border-box;
   text-decoration: none;
@@ -19,7 +19,9 @@ input[type="submit"] {
   font-size: larger;
   color: #171111;
   background-color: white;
-  text-align: center;
+  text-align: start;
+  border: black solid 2px;
+  border-radius: 0.5rem;
 }
 
 .editing {
@@ -27,8 +29,10 @@ input[type="submit"] {
   align-items: center;
 }
 
+.recipe-edit-name,
 .recipe-add-name {
   max-width: 100%;
+  font-size: larger;
 }
 
 .recipe-edit-name {
@@ -41,7 +45,13 @@ input[type="submit"] {
   padding: 3px;
 }
 
+.misc-form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .times-form {
+  /* max-width: 325px; */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
