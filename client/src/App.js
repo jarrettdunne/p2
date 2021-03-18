@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link, Route } from "react-router-dom"
 
-import PropTypes from 'prop-types';
+import {useEffect, useState} from "react"
+
 import axios from "axios"
 
 import Navbar from "./components/navbar/Navbar.jsx"
@@ -14,87 +15,47 @@ import Footer from "./components/footer/Footer.jsx"
 import './App.css';
 
 import { baseURL, config } from "./services"
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: []
+
+function App() {
+  const [data, setData] = useState([])
+  const [toggleFetch, setToggleFetch] = useState(false)
+  
+  useEffect(() => {
+    const getData = async () => {
+      const response = await axios.get(baseURL, config)
+      setData(response)
     }
+  })
 
-  }
-
-  async getData() {
-    const response = await axios.get(baseURL, config)
-    this.setState({ data: response.data.records })
-  }
-
-  toggleFetch() {
-
-  }
-
-  componentWillMount() {
-
-  }
-
-  componentDidMount() {
-    this.getData()
-  }
-
-  componentWillReceiveProps(nextProps) {
-
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    return true
-  }
-
-  componentWillUpdate(nextProps, nextState) {
-
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-
-  }
-
-  componentWillUnmount() {
-
-  }
-
-  render() {
-    return (
-      <div>
-        <div className="navbar">
-          <Navbar recipes={this.state.data}/>
-        </div>
-        <Route exact path="/">
-          <div>
-            <option></option>
-          </div>
-          <div className="display-main">
-            {this.state.data.map((i) => (
-              <Link to={`/recipe/${i.id}`}>
-                <DisplayMain recipe={i} />
-              </Link>
-            ))}
-          </div>
-        </Route>
-        <Route exact path="/recipe/:id" >
-          <DisplayFull recipes={this.state.data}/>
-        </Route>
-        <Route exact path="/recipe/:id/edit">
-          <FormEdit recipes={this.state.data}/>
-        </Route>
-        <Route exact path="/add">
-          <FormAdd />
-        </Route>
-        <Footer />
+  return (
+    <div>
+      <div className="navbar">
+        <Navbar recipes={data}/>
       </div>
-    );
-  }
+      <Route exact path="/">
+        <div>
+          <option></option>
+        </div>
+        <div className="display-main">
+          {data.map((i) => (
+            <Link to={`/recipe/${i.id}`}>
+              <DisplayMain recipe={i} />
+            </Link>
+          ))}
+        </div>
+      </Route>
+      <Route exact path="/recipe/:id" >
+        <DisplayFull recipes={data}/>
+      </Route>
+      <Route exact path="/recipe/:id/edit">
+        <FormEdit recipes={data}/>
+      </Route>
+      <Route exact path="/add">
+        <FormAdd />
+      </Route>
+      <Footer />
+    </div>
+  );
 }
-
-App.propTypes = {
-
-};
 
 export default App;
