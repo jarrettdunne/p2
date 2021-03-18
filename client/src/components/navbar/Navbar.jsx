@@ -22,7 +22,7 @@ class Navbar extends Component {
           <h1>recipes</h1>
         </Link>
         <img className="dot" src="https://i.imgur.com/PTqYVhG.png" title="source: imgur.com" />
-        <Link to="/recipe/add">
+        <Link to="/add">
           <div className="icon-div">
             <h1>add</h1>
             <img src="https://i.imgur.com/YruOcld.png" title="source: imgur.com" />

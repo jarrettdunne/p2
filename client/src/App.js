@@ -29,6 +29,10 @@ class App extends Component {
     this.setState({ data: response.data.records })
   }
 
+  toggleFetch() {
+    
+  }
+
   componentWillMount() {
 
   }
@@ -78,7 +82,7 @@ class App extends Component {
         <Route exact path="/recipe/:id/edit">
           <FormEdit recipes={this.state.data}/>
         </Route>
-        <Route exact path="/recipe/add">
+        <Route exact path="/add">
           <FormAdd />
         </Route>
         <Footer />
