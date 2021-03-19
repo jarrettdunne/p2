@@ -1,6 +1,8 @@
 import React from 'react';
 import { withRouter } from "react-router"
-import { Link, Route } from "react-router-dom"
+import { Link } from "react-router-dom"
+
+import { useHistory, useParams } from "react-router-dom"
 
 import "./Navbar.css"
 
@@ -8,7 +10,8 @@ function Navbar(props) {
 
   const recipe = props.recipes.find((i) => i.id === props.match.params.id)
   
-  const renderValid = true
+  const params = useParams()
+  const history = useHistory()
 
   const main = () => {
     return (
@@ -16,11 +19,20 @@ function Navbar(props) {
         <Link to="/">
           <h1>recipes</h1>
         </Link>
-        <img className="dot" src="https://i.imgur.com/PTqYVhG.png" title="source: imgur.com" />
+        <img
+          className="dot"
+          src="https://i.imgur.com/PTqYVhG.png"
+          title="source: imgur.com"
+          alt="dot"
+        />
         <Link to="/add">
           <div className="icon-div">
             <h1>add</h1>
-            <img src="https://i.imgur.com/YruOcld.png" title="source: imgur.com" />
+            <img
+              src="https://i.imgur.com/YruOcld.png"
+              title="source: imgur.com"
+              alt="plus"
+            />
           </div>
         </Link>
       </nav>

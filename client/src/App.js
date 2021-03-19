@@ -24,7 +24,6 @@ function App() {
     const getData = async () => {
       const response = await axios.get(baseURL, config)
       setData(response.data.records)
-      console.log(data)
     }
     
     getData()

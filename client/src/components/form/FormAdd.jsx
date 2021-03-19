@@ -1,119 +1,135 @@
-import React, { Component } from 'react';
-import { baseURL, config } from "../../services"
+import React, { useEffect, useState } from 'react';
+import { useHistory, useParams } from "react-router-dom"
+
 import axios from "axios"
-import PropTypes from 'prop-types';
 
-
+import { baseURL, config } from "../../services"
 import mealTypes from "../../data/mealTypes.json"
 
-class FormAdd extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "",
-      ingredients: "",
-      directions: "",
-      type: "",
-      prep: "",
-      cook: "",
-      notes: "",
-    }
+function FormAdd(props) {
+  const [name, setName] = useState("")
+  const [ingredients, setIngredients] = useState("")
+  const [directions, setDirections] = useState("")
+  const [type, setType] = useState("")
+  const [prep, setPrep] = useState("")
+  const [cook, setCook] = useState("")
+  const [notes, setNotes] = useState("")
 
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
+  const params = useParams()
+  const history = useHistory()
   
-  async handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
-    await axios.post(baseURL, { fields: this.state }, config)
+    const currData = {
+      name,
+      ingredients,
+      directions,
+      type,
+      prep,
+      cook,
+      notes,
+    }
+    await axios.post(baseURL, { fields: currData }, config)
+    props.setToggleFetch((curr) => !curr)
+    history.push("/")
   }
 
-  componentWillMount() {
-
-  }
-
-  componentDidMount() {
-    this.setState({type: mealTypes.type[0]})
-  }
-
-  componentWillReceiveProps(nextProps) {
-
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    return true
-
-  }
-
-  componentWillUpdate(nextProps, nextState) {
-
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-
-  }
-
-  componentWillUnmount() {
-
-  }
-
-  render() {
-    return (
-      <div>
-        <form className="form-main" onSubmit={this.handleSubmit}>
-          <div className="editing">
-            <div>
-              <input required className="recipe-add-name" type="text" name="" id="" placeholder="recipe name" onChange={(e) => this.setState({name: e.target.value})}/>
-            </div>
-            {/* <img className="vertical-line" src="https://i.imgur.com/5V9fhc5.png" title="source: imgur.com" />
-            <h2>adding</h2> */}
-            {/* <img className="vertical-line" src="https://i.imgur.com/5V9fhc5.png" title="source: imgur.com" /> */}
-            <input type="submit" value="submit new"/>
+  return (
+    <div>
+      <form className="form-main" onSubmit={handleSubmit}>
+        <div className="editing">
+          <div>
+            <input
+              required
+              className="recipe-add-name"
+              type="text"
+              name=""
+              id=""
+              placeholder="recipe name"
+              onChange={(e) => setName(e.target.value)}
+            />
           </div>
-          <div className="times-form">
-            <div className="prep-time">
-              <input type="text" name="" id="" placeholder="prep time" onChange={(e) => this.setState({ prep: e.target.value })}/>
+          {/* <img className="vertical-line" src="https://i.imgur.com/5V9fhc5.png" title="source: imgur.com" />
+          <h2>adding</h2> */}
+          {/* <img className="vertical-line" src="https://i.imgur.com/5V9fhc5.png" title="source: imgur.com" /> */}
+          <input
+            type="submit"
+            value="submit new"
+          />
+        </div>
+        <div className="times-form">
+          <div className="prep-time">
+            <input
+              type="text"
+              name=""
+              id=""
+              placeholder="prep time"
+              onChange={(e) => setPrep(e.target.value)}
+            />
+          </div>
+          <div className="cook-time">
+            <input
+              type="text"
+              name=""
+              id=""
+              placeholder="cook time"
+              onChange={(e) => setCook(e.target.value)}
+            />
+          </div>
+        </div>
+        <div className="type-form" onChange={(e) => setType(e.target.value)}>
+          <select name="" id="">
+            {mealTypes.type.map((i) => (
+              <option value={i}>{i}</option>
+            ))}
+          </select>
+        </div>
+        <div className="inputs-main">
+          <div className="ingredients-form">
+            <h3>ingredients</h3>
+            <div className="ingredient-inputs-main">
+              <textarea
+                required
+                name=""
+                id=""
+                cols="25"
+                rows="15"
+                onChange={(e) => setIngredients(e.target.value)}
+              ></textarea>
             </div>
-            <div className="cook-time">
-              <input type="text" name="" id="" placeholder="cook time" onChange={(e) => this.setState({ cook: e.target.value })}/>
+            <div className="ingredients-add"></div>
+          </div>
+          <div className="directions-form">
+            <h3>directions</h3>
+            <div className="directions-inputs-main">
+              <textarea
+                required
+                name=""
+                id=""
+                cols="25"
+                rows="15"
+                onChange={(e) => setDirections(e.target.value)}
+              ></textarea>
+            </div>
+            <div className="directions-add"></div>
+          </div>
+          <div className="notes-form">
+            <h3>notes</h3>
+            <div className="directions-inputs-main">
+              <textarea
+                required
+                name=""
+                id=""
+                cols="25"
+                rows="5"
+                onChange={(e) => setNotes(e.target.value)}
+              ></textarea>
             </div>
           </div>
-          <div className="type-form" onChange={(e) => this.setState({type: e.target.value})}>
-            <select name="" id="">
-              {mealTypes.type.map((i) => (
-                <option value={i}>{i}</option>
-              ))}
-            </select>
-          </div>
-          <div className="inputs-main">
-            <div className="ingredients-form">
-              <h3>ingredients</h3>
-              <div className="ingredient-inputs-main">
-                <textarea required name="" id="" cols="25" rows="15" onChange={(e) => this.setState({ ingredients: e.target.value })}></textarea>
-              </div>
-              <div className="ingredients-add"></div>
-            </div>
-            <div className="directions-form">
-              <h3>directions</h3>
-              <div className="directions-inputs-main">
-                <textarea required name="" id="" cols="25" rows="15" onChange={(e) => this.setState({directions: e.target.value})}></textarea>
-              </div>
-              <div className="directions-add"></div>
-            </div>
-            <div className="notes-form">
-              <h3>notes</h3>
-              <div className="directions-inputs-main">
-                <textarea required name="" id="" cols="25" rows="5" onChange={(e) => this.setState({notes: e.target.value})}></textarea>
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
-    );
-  }
+        </div>
+      </form>
+    </div>
+  );
 }
-
-FormAdd.propTypes = {
-
-};
 
 export default FormAdd;

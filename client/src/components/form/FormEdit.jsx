@@ -40,6 +40,7 @@ function FormEdit(props) {
   }
 
   useEffect(() => {
+    console.log(history.location.pathname)
     if (params.id && props.recipes.length > 0) {
       const recipe = props.recipes.find((i) => i.id === params.id)
       console.log("recipe.id", recipe.id)
@@ -54,7 +55,7 @@ function FormEdit(props) {
         setNotes(recipe.fields.notes)
       }
     }
-  }, [props.recipes, params.id])
+  }, [props.recipes, params.id, history.location.pathname])
   
   return (
     <div>
@@ -95,7 +96,7 @@ function FormEdit(props) {
             />
           </div>
           <div className="type-form">
-            <select name="" id="" onChange={(e) => setType(e.target.value)}>
+            <select required name="" id="" onChange={(e) => setType(e.target.value)}>
             {mealTypes.type.map((i) => {
               if (i === recipe.fields.type) {
                 return <option selected={true} value={i}>{i}</option>

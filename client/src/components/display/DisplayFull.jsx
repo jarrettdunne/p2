@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { withRouter } from "react-router"
 
 import totalTime from "../../data/functions"
@@ -13,11 +13,18 @@ function DisplayFull(props) {
     <div>
       <div className="recipe-name-edit">
         <h2>{recipe.fields.name.toLowerCase()}</h2>
-        <img className="vertical-line" src="https://i.imgur.com/5V9fhc5.png" title="source: imgur.com" />
+        <img
+          className="vertical-line"
+          src="https://i.imgur.com/5V9fhc5.png"
+          title="source: imgur.com"
+          alt="line"
+        />
         <Link to={`/recipe/${recipe.id}/edit`}>
           <div className="icon-div">
             <h2>edit</h2>
-            <div className="icon-plus"><a href="https://imgur.com/YruOcld"><img src="https://i.imgur.com/YruOcld.png" title="source: imgur.com" /></a></div>
+            <div className="icon-plus">
+              <img src="https://i.imgur.com/YruOcld.png" title="source: imgur.com" alt="plus"/>
+            </div>
           </div>
         </Link>
       </div>
