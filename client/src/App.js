@@ -23,9 +23,12 @@ function App() {
   useEffect(() => {
     const getData = async () => {
       const response = await axios.get(baseURL, config)
-      setData(response)
+      setData(response.data.records)
+      console.log(data)
     }
-  })
+    
+    getData()
+  }, [toggleFetch])
 
   return (
     <div>
@@ -45,13 +48,13 @@ function App() {
         </div>
       </Route>
       <Route exact path="/recipe/:id" >
-        <DisplayFull recipes={data}/>
+        <DisplayFull recipes={data} />
       </Route>
       <Route exact path="/recipe/:id/edit">
-        <FormEdit recipes={data}/>
+        <FormEdit recipes={data} setToggleFetch={setToggleFetch}/>
       </Route>
       <Route exact path="/add">
-        <FormAdd />
+        <FormAdd setToggleFetch={setToggleFetch}/>
       </Route>
       <Footer />
     </div>

@@ -1,58 +1,17 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 
 import totalTime from "../../data/functions"
 
 import "./DisplayMain.css"
 
-class DisplayMain extends Component {
-  constructor(props) {
-    super(props);
-    this.recipe = props.recipe.fields
-    this.totalTime = totalTime.bind(this)
-  }
-
-  componentWillMount() {
-
-  }
-
-  componentDidMount() {
-    
-  }
-
-  componentWillReceiveProps(nextProps) {
-
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    return true
-  }
-
-  componentWillUpdate(nextProps, nextState) {
-
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-
-  }
-
-  componentWillUnmount() {
-
-  }
-
-  render() {
-    return (
-      <div className="display-main-item">
-        <h4 className="display-name">{this.recipe.name.toLowerCase()}</h4>
-        <p>{this.recipe.type}</p>
-        <p>{this.totalTime(this.recipe.prep, this.recipe.cook)}</p>
-      </div>
-    );
-  }
+function DisplayMain(props) {
+  return (
+    <div className="display-main-item">
+      <h4 className="display-name">{props.recipe.fields.name.toLowerCase()}</h4>
+      <p>{props.recipe.fields.type}</p>
+      <p>{totalTime(props.recipe.fields.prep, props.recipe.fields.cook)}</p>
+    </div>
+  );
 }
-
-DisplayMain.propTypes = {
-
-};
 
 export default DisplayMain;
