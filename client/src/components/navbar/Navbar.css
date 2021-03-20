@@ -22,6 +22,11 @@ nav {
 
 .home-div {
   display: flex;
+  align-items: center;
+}
+
+.home-div-title {
+  font-size: 3.9rem;
 }
 
 .back-icon {

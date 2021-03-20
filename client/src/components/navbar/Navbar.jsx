@@ -56,9 +56,9 @@ function Navbar(props) {
     if (history.location.pathname === "/") {
       return (
         <div className="home-div">
-          <h1>RECIPES</h1>
+          <h1 className="home-div-title">RECIPES</h1>
           <Link to="/add">
-            <h2>add</h2>
+            <h2>{`  +add`}</h2>
           </Link>
         </div>
       )
@@ -105,7 +105,7 @@ function Navbar(props) {
             />
           </Link>
           {name.toLowerCase()}
-          adding deliciousness
+          adding
         </h2>
       )
     } else {
@@ -121,7 +121,7 @@ function Navbar(props) {
             </Link>
             {name.toLowerCase()}
             <Link to={`/${mod}`}>
-              {mod}
+              {`${mod}`}
             </Link>
           </h2>
         </div>
