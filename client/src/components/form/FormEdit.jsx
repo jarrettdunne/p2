@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { withRouter } from "react-router"
 import { useHistory, useParams } from "react-router-dom"
 import {baseURL, config} from "../../services"
 
@@ -9,7 +8,6 @@ import "./Form.css"
 import mealTypes from "../../data/mealTypes.json"
 
 function FormEdit(props) {
-  const recipe = props.recipes.find((i) => i.id === props.match.params.id)
   const [name, setName] = useState("")
   const [ingredients, setIngredients] = useState("")
   const [directions, setDirections] = useState("")
@@ -17,9 +15,19 @@ function FormEdit(props) {
   const [prep, setPrep] = useState("")
   const [cook, setCook] = useState("")
   const [notes, setNotes] = useState("")
-
+  
   const params = useParams()
   const history = useHistory()
+
+  let recipe = {
+    name,
+    ingredients,
+    directions,
+    type,
+    prep,
+    cook,
+    notes,
+  }
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -33,18 +41,14 @@ function FormEdit(props) {
       notes,
     }
     const recordURL = `${baseURL}/${params.id}`
-    console.log(recordURL)
     await axios.put(recordURL, { fields: currData }, config)
     props.setToggleFetch((curr) => !curr)
     history.push("/")
   }
 
   useEffect(() => {
-    console.log(history.location.pathname)
     if (params.id && props.recipes.length > 0) {
       const recipe = props.recipes.find((i) => i.id === params.id)
-      console.log("recipe.id", recipe.id)
-      console.log("params.id", params.id)
       if (recipe) {
         setName(recipe.fields.name)
         setIngredients(recipe.fields.ingredients)
@@ -73,7 +77,7 @@ function FormEdit(props) {
           </div>
           <input
             type="submit"
-            value="submit changes"
+            value="save changes"
           />
         </div>
         <div className="misc-form">
@@ -97,11 +101,13 @@ function FormEdit(props) {
           </div>
           <div className="type-form">
             <select required name="" id="" onChange={(e) => setType(e.target.value)}>
-            {mealTypes.type.map((i) => {
-              if (i === recipe.fields.type) {
-                return <option selected={true} value={i}>{i}</option>
-              } else {
-                return <option selected={false} value={i}>{i}</option>
+              {mealTypes.type.map((i) => {
+                if (props.recipes.length != 0) {
+                  if (i === (type)) {
+                    return <option value={i}>{i}</option>
+                  } else {
+                    return <option value={i}>{i}</option>
+                  }
               }
             })}
             </select>
@@ -164,4 +170,4 @@ function FormEdit(props) {
 }
 
 
-export default withRouter(FormEdit);
+export default FormEdit;

@@ -17,6 +17,8 @@ function FormAdd(props) {
 
   const params = useParams()
   const history = useHistory()
+
+  let key = 0
   
   async function handleSubmit(e) {
     e.preventDefault()
@@ -80,7 +82,7 @@ function FormAdd(props) {
         <div className="type-form" onChange={(e) => setType(e.target.value)}>
           <select name="" id="">
             {mealTypes.type.map((i) => (
-              <option value={i}>{i}</option>
+              <option key={key++} value={i}>{i}</option>
             ))}
           </select>
         </div>

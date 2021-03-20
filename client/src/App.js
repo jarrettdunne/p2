@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Route } from "react-router-dom"
+import { Link, Route, useHistory } from "react-router-dom"
 
 import {useEffect, useState} from "react"
 
@@ -17,8 +17,18 @@ import './App.css';
 import { baseURL, config } from "./services"
 
 function App() {
+  let key = () => {
+    return
+  }
   const [data, setData] = useState([])
   const [toggleFetch, setToggleFetch] = useState(false)
+  const [toggleNav, setToggleNav] = useState(false)
+
+  const history = useHistory()
+
+  useEffect(() => {
+    setToggleNav((curr) => !curr)
+  }, [history.location.pathname])
   
   useEffect(() => {
     const getData = async () => {
@@ -32,7 +42,7 @@ function App() {
   return (
     <div>
       <div className="navbar">
-        <Navbar recipes={data}/>
+        <Navbar recipes={data} toggleNav={toggleNav}/>
       </div>
       <Route exact path="/">
         <div>
@@ -41,7 +51,7 @@ function App() {
         <div className="display-main">
           {data.map((i) => (
             <Link to={`/recipe/${i.id}`}>
-              <DisplayMain recipe={i} />
+              <DisplayMain key={i.id} recipe={i} />
             </Link>
           ))}
         </div>
