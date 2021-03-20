@@ -4,11 +4,15 @@
 
 .display-main {
   /* border-color: orangered; */
+
 }
 
 .display-main-item {
-  border: solid #171111;
+  border: solid #171111 0.05rem;
+  border-radius: 0.1rem;
   max-width: 325px;
+  margin: 0 auto;
+  padding: 0 0.5rem;
 }
 
 @media screen and (min-width:767px) {
