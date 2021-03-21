@@ -12,18 +12,24 @@
 }
 
 .display-main-item {
-  border: solid #171111 0.05rem;
+  /* border: solid #171111 1px; */
   /* border-radius: 0.1rem; */
   max-width: 325px;
   margin: 0 auto;
-  padding: 0 0.5rem;
-
+  padding: 0 1rem;
   background-color: #82BBBF;
 }
+
+.display-main a {
+
+}
+
+.display-main-item,
 .display-main-item,
 .display-main-item p,
 .display-main-item div,
-.display-main-item h4 {
+.display-main-item h4,
+.display-main-item h3 {
   border-color: #82BBBF;
 }
 

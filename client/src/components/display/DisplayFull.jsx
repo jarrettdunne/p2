@@ -46,6 +46,11 @@ function DisplayFull(props) {
 
   return (
     <div>
+      <div className="recipe-name-edit">
+        <h2>
+          {name}
+        </h2>
+      </div>
       <div className="recipe-times">
         <div className="time-prep time-div">
           <h3>prep time</h3>

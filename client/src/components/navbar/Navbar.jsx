@@ -80,33 +80,47 @@ function Navbar(props) {
       const path = history.location.pathname.split('/')
       const id = path[path.length - 1]
       return (
-        <h2 className="navbar-full">
+        <div className="navbar-home-edit">
           <Link to="/">
-            <img
-              className="back-icon"
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATYAAACjCAMAAAA3vsLfAAAAe1BMVEX///8dHR0AAAAVFRUYGBgUFBQRERHu7u7q6urm5uZZWVllZWXy8vLs7OxfX1/k5OR4eHhqamoLCwshISFeXl4tLS1/f38lJSVVVVVubm7e3t6ampqRkZEoKCh5eXmtra0/Pz+EhIQxMTHHx8dMTEzS0tI4ODi2traCgoKaaijJAAADPUlEQVR4nO3d2VLbQBBGYWasNcgxyGF3MASyvP8ThlxQJFjdWP9Njyrne4KuU5J6zCKfnAAAsHDD/vzh4uF0P0QPsii7nJuqqpqcH6NHWY72IqdXedtHj7MQXVOnN6tMt2N09Sr9rf4WPdESvK/2cp/eRc9UvsNqqRqjhyreujmo9nK5PUWPVbjJainvoucq23S1NJ5FD1a0broa2VzdarpaGi+jRytYVxnVUt5Hz1autVkt5U30cMVaH57XXtXP0cMVy6mW8vfo6UrVWtvgTzV+dmRwr7Wb6OlK5WyDlM+jpyvVOlFtPqopuEMVLdUEVFNQTUE1RcsOFbSptqudRk9XKqopqKYYvG1ANQPVFO7Jg2oGnmuKdku1+aimoJpi4LkmoJqCagqqKdgGivaKavMNXrXP0dOVimqKwXuuUc3g7lCqGbjWFDzXFFRTDF8bqs3mVvsSPV2p3DuUagZ3h1LNQDUFd6iCbaCgmoJqCrfap+jpSjVcUW0+9+RBNYN78qCagW2gGC54rs1HNQXVFG616+jpSuVuA6oZOOUq+EQl+UE1wWOm2nwD1RQ/zWzsUMduNKo1VHOcWdl4mannkatN4Tzb2Ag2Nqnmkm4Sfgsvab032NHN1I5ON+5TU2u8q5luPveNbHQz0U1jv+eaveBxu/G34aaJ7yah2xHW3jmEbib3/EY3k/ENJXT7gPltG3RzufuU/403udcb3UzuOYRupm6s6CZYZ7op3HMv3UzWd6XRzcde0PReN94dbuq9+5Rupt47h9DN1HnnELqZ6KZxPy/QzdR75166mdinGrcb33Bocs8hdDP13j6lm4luGvf8RjcT15uGvaDZ0E3idjuLnq5cG+/5RjeTuxfoZqKbhm4anm8a9qmGbhruUw3dNG63++jpykU3Dd00dNPQTeN2u4yerlx009BN43a7i56uXG632+jpyuV0a/j3etut3S130cMVzO6W99GzlczsNv6KHq1oVreRnyG5jG4jH7F8093yLnqu0k12y0/RYxVvqhuvUf3YYTfu0WO877a6ip5oGf7tVvGR9Eib+u19qiPVjnefc12lqs75ZoieZUm6u+tt3j7v+uhBAAD/td80LitZWYSexAAAAABJRU5ErkJggg=="
-              alt="back"
-            />
+            <h2 className="navbar-full ">
+              <img
+                className="back-icon"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATYAAACjCAMAAAA3vsLfAAAAe1BMVEX///8dHR0AAAAVFRUYGBgUFBQRERHu7u7q6urm5uZZWVllZWXy8vLs7OxfX1/k5OR4eHhqamoLCwshISFeXl4tLS1/f38lJSVVVVVubm7e3t6ampqRkZEoKCh5eXmtra0/Pz+EhIQxMTHHx8dMTEzS0tI4ODi2traCgoKaaijJAAADPUlEQVR4nO3d2VLbQBBGYWasNcgxyGF3MASyvP8ThlxQJFjdWP9Njyrne4KuU5J6zCKfnAAAsHDD/vzh4uF0P0QPsii7nJuqqpqcH6NHWY72IqdXedtHj7MQXVOnN6tMt2N09Sr9rf4WPdESvK/2cp/eRc9UvsNqqRqjhyreujmo9nK5PUWPVbjJainvoucq23S1NJ5FD1a0broa2VzdarpaGi+jRytYVxnVUt5Hz1autVkt5U30cMVaH57XXtXP0cMVy6mW8vfo6UrVWtvgTzV+dmRwr7Wb6OlK5WyDlM+jpyvVOlFtPqopuEMVLdUEVFNQTUE1RcsOFbSptqudRk9XKqopqKYYvG1ANQPVFO7Jg2oGnmuKdku1+aimoJpi4LkmoJqCagqqKdgGivaKavMNXrXP0dOVimqKwXuuUc3g7lCqGbjWFDzXFFRTDF8bqs3mVvsSPV2p3DuUagZ3h1LNQDUFd6iCbaCgmoJqCrfap+jpSjVcUW0+9+RBNYN78qCagW2gGC54rs1HNQXVFG616+jpSuVuA6oZOOUq+EQl+UE1wWOm2nwD1RQ/zWzsUMduNKo1VHOcWdl4mannkatN4Tzb2Ag2Nqnmkm4Sfgsvab032NHN1I5ON+5TU2u8q5luPveNbHQz0U1jv+eaveBxu/G34aaJ7yah2xHW3jmEbib3/EY3k/ENJXT7gPltG3RzufuU/403udcb3UzuOYRupm6s6CZYZ7op3HMv3UzWd6XRzcde0PReN94dbuq9+5Rupt47h9DN1HnnELqZ6KZxPy/QzdR75166mdinGrcb33Bocs8hdDP13j6lm4luGvf8RjcT15uGvaDZ0E3idjuLnq5cG+/5RjeTuxfoZqKbhm4anm8a9qmGbhruUw3dNG63++jpykU3Dd00dNPQTeN2u4yerlx009BN43a7i56uXG632+jpyuV0a/j3etut3S130cMVzO6W99GzlczsNv6KHq1oVreRnyG5jG4jH7F8093yLnqu0k12y0/RYxVvqhuvUf3YYTfu0WO877a6ip5oGf7tVvGR9Eib+u19qiPVjnefc12lqs75ZoieZUm6u+tt3j7v+uhBAAD/td80LitZWYSexAAAAABJRU5ErkJggg=="
+                alt="back"
+              />
+              <div>
+                home
+              </div>
+            </h2>
           </Link>
-          {name.toLowerCase()}
           <Link to={`/recipe/${id}/edit`}>
-            {' edit'}
+            <div className="navbar-full">
+              <h2>
+                {' edit'}
+              </h2>
+              <img
+                  className="back-icon reverse"
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATYAAACjCAMAAAA3vsLfAAAAe1BMVEX///8dHR0AAAAVFRUYGBgUFBQRERHu7u7q6urm5uZZWVllZWXy8vLs7OxfX1/k5OR4eHhqamoLCwshISFeXl4tLS1/f38lJSVVVVVubm7e3t6ampqRkZEoKCh5eXmtra0/Pz+EhIQxMTHHx8dMTEzS0tI4ODi2traCgoKaaijJAAADPUlEQVR4nO3d2VLbQBBGYWasNcgxyGF3MASyvP8ThlxQJFjdWP9Njyrne4KuU5J6zCKfnAAAsHDD/vzh4uF0P0QPsii7nJuqqpqcH6NHWY72IqdXedtHj7MQXVOnN6tMt2N09Sr9rf4WPdESvK/2cp/eRc9UvsNqqRqjhyreujmo9nK5PUWPVbjJainvoucq23S1NJ5FD1a0broa2VzdarpaGi+jRytYVxnVUt5Hz1autVkt5U30cMVaH57XXtXP0cMVy6mW8vfo6UrVWtvgTzV+dmRwr7Wb6OlK5WyDlM+jpyvVOlFtPqopuEMVLdUEVFNQTUE1RcsOFbSptqudRk9XKqopqKYYvG1ANQPVFO7Jg2oGnmuKdku1+aimoJpi4LkmoJqCagqqKdgGivaKavMNXrXP0dOVimqKwXuuUc3g7lCqGbjWFDzXFFRTDF8bqs3mVvsSPV2p3DuUagZ3h1LNQDUFd6iCbaCgmoJqCrfap+jpSjVcUW0+9+RBNYN78qCagW2gGC54rs1HNQXVFG616+jpSuVuA6oZOOUq+EQl+UE1wWOm2nwD1RQ/zWzsUMduNKo1VHOcWdl4mannkatN4Tzb2Ag2Nqnmkm4Sfgsvab032NHN1I5ON+5TU2u8q5luPveNbHQz0U1jv+eaveBxu/G34aaJ7yah2xHW3jmEbib3/EY3k/ENJXT7gPltG3RzufuU/403udcb3UzuOYRupm6s6CZYZ7op3HMv3UzWd6XRzcde0PReN94dbuq9+5Rupt47h9DN1HnnELqZ6KZxPy/QzdR75166mdinGrcb33Bocs8hdDP13j6lm4luGvf8RjcT15uGvaDZ0E3idjuLnq5cG+/5RjeTuxfoZqKbhm4anm8a9qmGbhruUw3dNG63++jpykU3Dd00dNPQTeN2u4yerlx009BN43a7i56uXG632+jpyuV0a/j3etut3S130cMVzO6W99GzlczsNv6KHq1oVreRnyG5jG4jH7F8093yLnqu0k12y0/RYxVvqhuvUf3YYTfu0WO877a6ip5oGf7tVvGR9Eib+u19qiPVjnefc12lqs75ZoieZUm6u+tt3j7v+uhBAAD/td80LitZWYSexAAAAABJRU5ErkJggg=="
+                  alt="back"
+                />
+            </div>
           </Link>
-        </h2>
+        </div>
       )
     } else if (history.location.pathname.includes("add")) {
       return (
-        <h2 className="navbar-full">
-          <Link to="/">
+        <Link to="/">
+          <h2 className="navbar-full">
             <img
               className="back-icon"
               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATYAAACjCAMAAAA3vsLfAAAAe1BMVEX///8dHR0AAAAVFRUYGBgUFBQRERHu7u7q6urm5uZZWVllZWXy8vLs7OxfX1/k5OR4eHhqamoLCwshISFeXl4tLS1/f38lJSVVVVVubm7e3t6ampqRkZEoKCh5eXmtra0/Pz+EhIQxMTHHx8dMTEzS0tI4ODi2traCgoKaaijJAAADPUlEQVR4nO3d2VLbQBBGYWasNcgxyGF3MASyvP8ThlxQJFjdWP9Njyrne4KuU5J6zCKfnAAAsHDD/vzh4uF0P0QPsii7nJuqqpqcH6NHWY72IqdXedtHj7MQXVOnN6tMt2N09Sr9rf4WPdESvK/2cp/eRc9UvsNqqRqjhyreujmo9nK5PUWPVbjJainvoucq23S1NJ5FD1a0broa2VzdarpaGi+jRytYVxnVUt5Hz1autVkt5U30cMVaH57XXtXP0cMVy6mW8vfo6UrVWtvgTzV+dmRwr7Wb6OlK5WyDlM+jpyvVOlFtPqopuEMVLdUEVFNQTUE1RcsOFbSptqudRk9XKqopqKYYvG1ANQPVFO7Jg2oGnmuKdku1+aimoJpi4LkmoJqCagqqKdgGivaKavMNXrXP0dOVimqKwXuuUc3g7lCqGbjWFDzXFFRTDF8bqs3mVvsSPV2p3DuUagZ3h1LNQDUFd6iCbaCgmoJqCrfap+jpSjVcUW0+9+RBNYN78qCagW2gGC54rs1HNQXVFG616+jpSuVuA6oZOOUq+EQl+UE1wWOm2nwD1RQ/zWzsUMduNKo1VHOcWdl4mannkatN4Tzb2Ag2Nqnmkm4Sfgsvab032NHN1I5ON+5TU2u8q5luPveNbHQz0U1jv+eaveBxu/G34aaJ7yah2xHW3jmEbib3/EY3k/ENJXT7gPltG3RzufuU/403udcb3UzuOYRupm6s6CZYZ7op3HMv3UzWd6XRzcde0PReN94dbuq9+5Rupt47h9DN1HnnELqZ6KZxPy/QzdR75166mdinGrcb33Bocs8hdDP13j6lm4luGvf8RjcT15uGvaDZ0E3idjuLnq5cG+/5RjeTuxfoZqKbhm4anm8a9qmGbhruUw3dNG63++jpykU3Dd00dNPQTeN2u4yerlx009BN43a7i56uXG632+jpyuV0a/j3etut3S130cMVzO6W99GzlczsNv6KHq1oVreRnyG5jG4jH7F8093yLnqu0k12y0/RYxVvqhuvUf3YYTfu0WO877a6ip5oGf7tVvGR9Eib+u19qiPVjnefc12lqs75ZoieZUm6u+tt3j7v+uhBAAD/td80LitZWYSexAAAAABJRU5ErkJggg=="
               alt="back"
             />
-          </Link>
-          {name.toLowerCase()}
-          adding
-        </h2>
+            <div>
+              home
+            </div>
+          </h2>
+        </Link>
       )
     } else {
       return (

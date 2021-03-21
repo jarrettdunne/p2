@@ -1,3 +1,8 @@
+:root {
+  --dot-size: 16px;
+  --icon-size: 35px;
+}
+
 nav {
   display: flex;
   align-items: center;
@@ -8,11 +13,8 @@ nav {
   align-items: center;
 }
 
-
-
-:root {
-  --dot-size: 16px;
-  --icon-size: 35px;
+.navbar div {
+  width: 100%;
 }
 
 .dot {
@@ -25,12 +27,25 @@ nav {
   align-items: center;
 }
 
+.navbar-edit {
+  display: flex;
+  justify-content: space-between;
+}
+.navbar-home-edit {
+  display: flex;
+  justify-content: space-between;
+}
+
 .home-div-title {
   font-size: 3.9rem;
 }
 
 .back-icon {
   width: 45px;
+}
+
+.reverse {
+  transform: rotate(180deg);
 }
 
 .icon-div img {
@@ -41,6 +56,8 @@ nav {
 
 .navbar-full {
   display: flex;
+  justify-content: center;
+  align-items: center;
   /* align-items: center; */
 }
 
