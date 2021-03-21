@@ -47,9 +47,9 @@ function DisplayFull(props) {
   return (
     <div>
       <div className="recipe-name-edit">
-        <h2>
+        <h1>
           {name}
-        </h2>
+        </h1>
       </div>
       <div className="recipe-times">
         <div className="time-prep time-div">

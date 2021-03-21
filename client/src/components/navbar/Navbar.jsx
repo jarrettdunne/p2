@@ -58,7 +58,7 @@ function Navbar(props) {
         <div className="home-div">
           <h1 className="home-div-title">RECIPES</h1>
           <Link to="/add">
-            <h2>{`  +add`}</h2>
+            <h2 className="home-div-title-add">{`  +add`}</h2>
           </Link>
         </div>
       )
@@ -93,6 +93,9 @@ function Navbar(props) {
               </div>
             </h2>
           </Link>
+          {/* <div className="navbar-home-edit-name">
+            <h1>{name}</h1>
+          </div> */}
           <Link to={`/recipe/${id}/edit`}>
             <div className="navbar-full">
               <h2>

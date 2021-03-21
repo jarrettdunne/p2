@@ -1,5 +1,6 @@
 .display-name {
   word-wrap: break-word;
+  /* font-size: large; */
 }
 
 .display-main {
@@ -15,9 +16,10 @@
   /* border: solid #171111 1px; */
   /* border-radius: 0.1rem; */
   max-width: 325px;
-  margin: 0 auto;
+  height: 125px;
+  margin: 5px 5px;
   padding: 0 1rem;
-  background-color: #82BBBF;
+  background-color: #FF6B6B;
 }
 
 .display-main a {
@@ -25,12 +27,12 @@
 }
 
 .display-main-item,
-.display-main-item,
 .display-main-item p,
 .display-main-item div,
 .display-main-item h4,
+.display-main-item h2,
 .display-main-item h3 {
-  border-color: #82BBBF;
+  border-color: #FF6B6B;
 }
 
 @media screen and (min-width:767px) {

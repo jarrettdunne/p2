@@ -36,10 +36,20 @@ nav {
   justify-content: space-between;
 }
 
-.home-div-title {
-  font-size: 3.9rem;
+.navbar-home-edit-name {
+  text-align: center;
 }
 
+.home-div-title {
+  font-size: 3.9rem;
+  background-color: #C7F464;
+}
+
+.home-div-title-add {
+  margin: 0 5px;
+  padding: 0 5px;
+  background-color: #4ECDC4;
+}
 .back-icon {
   width: 45px;
 }
