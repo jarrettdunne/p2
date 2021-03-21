@@ -4,12 +4,16 @@
 }
 
 .display-main {
-  /* border-color: orangered; */
+
 }
 
 .display-main-item-content {
   display: flex;
   justify-content: space-between;
+}
+
+.display-main-item-content h4 {
+  font-style: italic;
 }
 
 .display-main-item {
@@ -18,12 +22,8 @@
   max-width: 325px;
   height: 125px;
   margin: 5px 5px;
-  padding: 0 1rem;
+  padding: 1em 1em 1em 1em;
   background-color: #FF6B6B;
-}
-
-.display-main a {
-
 }
 
 .display-main-item,
@@ -70,5 +70,10 @@
 /* start of phone styles */
   .display-main-item {
     max-width: 100%;
+    margin: 10px 5px;
+  }
+
+  .display-main {
+    padding: 3px 0;
   }
 }

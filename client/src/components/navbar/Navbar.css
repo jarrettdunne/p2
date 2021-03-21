@@ -48,6 +48,7 @@ nav {
 .home-div-title-add {
   margin: 0 5px;
   padding: 0 5px;
+  width: max-content;
   background-color: #4ECDC4;
 }
 .back-icon {

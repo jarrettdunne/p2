@@ -50,6 +50,13 @@ function DisplayFull(props) {
         <h1>
           {name}
         </h1>
+        <div>
+          <Link to={`/recipe/${params.id}/edit`}>
+            <h2 className="home-div-title-add">
+              {` +edit`}
+            </h2>
+        </Link>
+        </div>
       </div>
       <div className="recipe-times">
         <div className="time-prep time-div">
@@ -72,15 +79,19 @@ function DisplayFull(props) {
       <div className="recipe-contents">
         <div className="ingredients">
           <h3>ingredients</h3>
-          {ingredients.split('\n').map((i) => (
-            <p key={key++}>{i}</p>
-          ))}
+          <div className="recipe-contents-content">
+            {ingredients.split('\n').map((i) => (
+              <p key={key++}>{i}</p>
+            ))}
+          </div>
         </div>
         <div className="directions">
           <h3>directions</h3>
-          {directions.split('\n').map((i) => (
-            <p key={key++}>{i}</p>
-          ))}
+          <div className="recipe-contents-content">
+            {directions.split('\n').map((i) => (
+              <p key={key++}>{i}</p>
+            ))}
+          </div>
         </div>
       </div>
     </div>
