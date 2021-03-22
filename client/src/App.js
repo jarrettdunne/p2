@@ -72,9 +72,6 @@ function App() {
                 </Link>
                 )
               }
-              return (
-                <div></div>
-              )
             }
             )}
           </div>

@@ -19,6 +19,8 @@ function FormEdit(props) {
   const params = useParams();
   const history = useHistory();
 
+  let key = 0
+
   async function handleSubmit(e) {
     e.preventDefault();
     const currData = {
@@ -96,9 +98,9 @@ function FormEdit(props) {
               {mealTypes.type.map((i) => {
                 if (props.recipes.length !== 0) {
                   if (i === type) {
-                    return <option value={i}>{i}</option>;
+                    return <option key={key++} value={i}>{i}</option>;
                   } else {
-                    return <option value={i}>{i}</option>;
+                    return <option key={key++} value={i}>{i}</option>;
                   }
                 }
                 return (
