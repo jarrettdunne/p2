@@ -1,29 +1,45 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom"
-import { useHistory } from "react-router-dom"
+import { useHistory, useParams } from "react-router-dom"
 
 import "./Navbar.css"
 
 function Navbar(props) {
   const [name, setName] = useState("")
+  const [ingredients, setIngredients] = useState("")
+  const [directions, setDirections] = useState("")
+  const [type, setType] = useState("")
+  const [prep, setPrep] = useState("")
+  const [cook, setCook] = useState("")
+  const [notes, setNotes] = useState("")
+
+  const [path, setPath] = useState("")
   const [mod, setMod] = useState("")
   
   const history = useHistory()
 
   useEffect(() => {
+    setPath(history.location.pathname)
+    console.log(history.location.pathname)
     const path = history.location.pathname.split('/')
     const id = path[path.length - 1]
     if (id && props.recipes.length > 0) {
       const recipe = props.recipes.find((i) => i.id === id)
       if (recipe) {
         setName(recipe.fields.name)
+        setIngredients(recipe.fields.ingredients)
+        setDirections(recipe.fields.directions)
+        setType(recipe.fields.type)
+        setPrep(recipe.fields.prep)
+        setCook(recipe.fields.cook)
+        setNotes(recipe.fields.notes)
         setMod("edit")
       }
     } else {
       setName("")
       setMod("add")
     }
-  }, [history.location.pathname, props.recipes])
+  })
 
   const backImg = "https://www.pinclipart.com/picdir/big/110-1105746_label-back-normal-comments-ios-back-arrow-png.png"
 
@@ -33,9 +49,7 @@ function Navbar(props) {
     if (history.location.pathname === "/") {
       return (
         <div className="home-div">
-          <Link to="/">
-            <h1 className="home-div-title">RECIPES</h1>
-          </Link>
+          <h1 className="home-div-title">RECIPES</h1>
           <Link to="/add">
             <h2 className="home-div-title-add">{`  +add`}</h2>
           </Link>
@@ -58,6 +72,8 @@ function Navbar(props) {
         </h2>
       )
     } else if (history.location.pathname.includes("recipe")) {
+      const path = history.location.pathname.split('/')
+      const id = path[path.length - 1]
       return (
         <div className="navbar-home-edit">
           <Link to="/">
