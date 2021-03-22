@@ -97,12 +97,12 @@ function FormEdit(props) {
             />
           </div>
           <div className="type-form">
-            <input list="type-list" />
+            <input list="type-list" onChange={(e) => setType(e.target.value)} />
             <datalist
               required
               name=""
               id="type-list"
-              onChange={(e) => setType(e.target.value)}
+              
             >
               {mealTypes.type.map((i) => {
                 if (props.recipes.length != 0) {

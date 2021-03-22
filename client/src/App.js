@@ -15,12 +15,14 @@ import Footer from "./components/footer/Footer.jsx"
 import './App.css';
 
 import { baseURL, config } from "./services"
+import mealTypes from "./data/mealTypes.json";
 
 function App() {
   let key = () => {
     return
   }
   const [data, setData] = useState([])
+  const [type, setType] = useState("")
   const [toggleFetch, setToggleFetch] = useState(false)
   const [toggleNav, setToggleNav] = useState(false)
 
@@ -46,7 +48,12 @@ function App() {
       </div>
       <Route exact path="/">
         <div>
-          <option></option>
+          <input list="type-list" onChange={(e) => setType(e.target.value)} />
+          <datalist id="type-list">
+            {mealTypes.type.map((i) => (
+              <option value={i}>{i}</option>
+            ))}
+          </datalist>
         </div>
         <div className="display-main">
           {data.map((i) => (

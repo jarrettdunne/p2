@@ -80,7 +80,7 @@ function FormAdd(props) {
           </div>
         </div>
         <div className="type-form" onChange={(e) => setType(e.target.value)}>
-          <input list="type-list"/>
+          <input required list="type-list"/>
           <datalist name="" id="type-list">
             {mealTypes.type.map((i) => (
               <option key={key++} value={i}>{i}</option>
