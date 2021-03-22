@@ -87,7 +87,7 @@ ul, ol {
 @media screen and (max-width: 479px) {
 /* start of phone styles */
   main {
-    padding: 1% 1%;
+    padding: 0% 0%;
   }
   header {
     padding: 0;
