@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, Route, useHistory } from "react-router-dom"
 
-import {useEffect, useState} from "react"
+import { useEffect, useState } from "react"
 
 import axios from "axios"
 
@@ -18,9 +18,6 @@ import { baseURL, config } from "./services"
 import mealTypes from "./data/mealTypes.json";
 
 function App() {
-  let key = () => {
-    return
-  }
   const [data, setData] = useState([])
   const [type, setType] = useState("")
   const [toggleFetch, setToggleFetch] = useState(false)
@@ -29,48 +26,63 @@ function App() {
   const history = useHistory()
 
   useEffect(() => {
+    setType("all")
+  }, [])
+
+  useEffect(() => {
     setToggleNav((curr) => !curr)
   }, [history.location.pathname])
-  
+
   useEffect(() => {
     const getData = async () => {
       const response = await axios.get(baseURL, config)
       setData(response.data.records)
     }
-    
+
     getData()
   }, [toggleFetch])
 
   return (
     <div>
       <div className="navbar">
-        <Navbar recipes={data} toggleNav={toggleNav}/>
+        <Navbar recipes={data} toggleNav={toggleNav} />
       </div>
       <Route exact path="/">
         <div>
-          <input list="type-list" onChange={(e) => setType(e.target.value)} />
-          <datalist id="type-list">
+          <select id="type-list" onChange={(e) => setType(e.target.value)} >
+            <option selected>{"all"}</option>
             {mealTypes.type.map((i) => (
               <option value={i}>{i}</option>
             ))}
-          </datalist>
+          </select>
         </div>
         <div className="display-main">
-          {data.map((i) => (
-            <Link to={`/recipe/${i.id}`}>
-              <DisplayMain key={i.id} recipe={i} />
-            </Link>
-          ))}
+          {data.map((i) => {
+            if (type === i.fields.type ) {
+              return (
+                <Link to={`/recipe/${i.id}`}>
+                  <DisplayMain key={i.id} recipe={i} />
+                </Link>
+              )
+            } else if (type === "all") {
+              return (
+              <Link to={`/recipe/${i.id}`}>
+                <DisplayMain key={i.id} recipe={i} />
+              </Link>
+              )
+            }
+          }
+          )}
         </div>
       </Route>
       <Route exact path="/recipe/:id" >
         <DisplayFull recipes={data} />
       </Route>
       <Route exact path="/recipe/:id/edit">
-        <FormEdit recipes={data} setToggleFetch={setToggleFetch}/>
+        <FormEdit recipes={data} setToggleFetch={setToggleFetch} />
       </Route>
       <Route exact path="/add">
-        <FormAdd setToggleFetch={setToggleFetch}/>
+        <FormAdd setToggleFetch={setToggleFetch} />
       </Route>
       <Footer />
     </div>
