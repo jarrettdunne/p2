@@ -146,7 +146,6 @@ function FormEdit(props) {
             <h3>notes</h3>
             <div className="directions-inputs-main">
               <textarea
-                required
                 name=""
                 id=""
                 cols="25"
