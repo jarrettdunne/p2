@@ -36,6 +36,10 @@ nav {
   justify-content: space-between;
 }
 
+.navbar-edit-header {
+  word-wrap: break-word;
+}
+
 .navbar-home-edit-name {
   text-align: center;
 }

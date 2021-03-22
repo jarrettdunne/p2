@@ -66,9 +66,9 @@ function Navbar(props) {
               src={backImg}
               alt="back"
             />
-            <div>
-              {name.toLowerCase()}
-            </div>
+            <p className="navbar-edit-header">
+              recipe
+            </p>
           </Link>
         </h2>
       )
