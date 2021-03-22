@@ -38,6 +38,11 @@ ul, ol {
   margin: 0;
 }
 
+select {
+  font-size: large;
+  padding: 5px;
+}
+
 .navbar {
   display: flex;
   flex-direction: row;
