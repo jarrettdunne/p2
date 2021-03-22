@@ -80,11 +80,12 @@ function FormAdd(props) {
           </div>
         </div>
         <div className="type-form" onChange={(e) => setType(e.target.value)}>
-          <select name="" id="">
+          <input list="type-list"/>
+          <datalist name="" id="type-list">
             {mealTypes.type.map((i) => (
               <option key={key++} value={i}>{i}</option>
             ))}
-          </select>
+          </datalist>
         </div>
         <div className="inputs-main">
           <div className="ingredients-form">

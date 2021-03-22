@@ -1,9 +1,12 @@
 textarea {
   border: #171111 solid 2px;
+  background-color: #C7F464;
 }
 
 input[type="text"] {
+  background-color: #C7F464;
   padding: 5px;
+  border-radius: 0;
   border-bottom: #171111 solid 2px;
   border-left: #171111 solid 2px;
   width: 90%;
@@ -47,7 +50,11 @@ input[type="submit"] {
 
 .misc-form {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.type-form {
+  margin: 5px;
 }
 
 .times-form {

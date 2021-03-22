@@ -30,10 +30,10 @@
 
 .recipe-times {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 100%;
   margin: 0 auto;
-  padding: 0.5rem;
+  padding: 0;
   background-color: #FF6B6B;
 }
 
@@ -55,14 +55,14 @@
   }
 
   .recipe-times {
-    width: 80%;
+    width: 100%;
   }
 }
 
 @media screen and (max-width: 479px) {
   /* start of medium tablet styles */
   .recipe-times {
-    width: 98%;
+    width: 100%;
   }
 
   .recipe-contents-content {
