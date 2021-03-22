@@ -45,7 +45,7 @@ export default function totalTime(prep, cook) {
   totalHrs = totalMins / 60
 
   if (totalHrs > 1) {
-    return `${parseInt(totalHrs)} hours & ${totalMins % 60} minutes`
+    return `${parseInt(totalHrs)} hrs & ${totalMins % 60} mins`
   } else {
     return `${totalMins} minutes`
   }

@@ -50,6 +50,9 @@ function DisplayFull(props) {
         <h1>
           {name}
         </h1>
+        <div className="time-type time-div">
+          <p>{type}</p>
+        </div>
         <div>
           <Link to={`/recipe/${params.id}/edit`}>
             <h2 className="home-div-title-add">
@@ -70,10 +73,6 @@ function DisplayFull(props) {
         <div className="time-total time-div">
           <h3>total time</h3>
           <p>{totalTime(prep, cook)}</p>
-        </div>
-        <div className="time-type time-div">
-          <h3>meal type</h3>
-          <p>{type}</p>
         </div>
       </div>
       <div className="recipe-contents">

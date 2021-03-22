@@ -4,6 +4,12 @@
   font-size: large;
   background-color: #C7F464;
   padding: 0 0 10px 0;
+  margin: 0;
+}
+
+.recipe-name-edit h1 {
+  margin: 0;
+  padding: 0;
 }
 
 .display-icon-div {
@@ -23,11 +29,11 @@
 }
 
 .recipe-times {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  justify-content: space-between;
   width: 100%;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 0.5rem;
   background-color: #FF6B6B;
 }
 
