@@ -19,16 +19,6 @@ function FormEdit(props) {
   const params = useParams();
   const history = useHistory();
 
-  let recipe = {
-    name,
-    ingredients,
-    directions,
-    type,
-    prep,
-    cook,
-    notes,
-  };
-
   async function handleSubmit(e) {
     e.preventDefault();
     const currData = {
@@ -102,16 +92,18 @@ function FormEdit(props) {
               required
               name=""
               id="type-list"
-              
             >
               {mealTypes.type.map((i) => {
-                if (props.recipes.length != 0) {
+                if (props.recipes.length !== 0) {
                   if (i === type) {
                     return <option value={i}>{i}</option>;
                   } else {
                     return <option value={i}>{i}</option>;
                   }
                 }
+                return (
+                  <div></div>
+                )
               })}
             </datalist>
           </div>
@@ -122,7 +114,6 @@ function FormEdit(props) {
             <div className="ingredient-inputs-main">
               <ul>
                 <textarea
-                  required
                   name=""
                   id=""
                   cols="25"

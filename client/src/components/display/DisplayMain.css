@@ -1,11 +1,7 @@
 .display-name {
   word-wrap: break-word;
-  /* font-size: large; */
 }
 
-.display-main {
-
-}
 
 .display-main-item-content {
   display: flex;
@@ -17,8 +13,6 @@
 }
 
 .display-main-item {
-  /* border: solid #171111 1px; */
-  /* border-radius: 0.1rem; */
   max-width: 325px;
   height: 125px;
   margin: 5px 5px;
@@ -42,7 +36,7 @@
   }
 }
 
-@media screen and (min-width:991px) {
+@media screen and (min-width: 1024px) {
   .display-main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -51,7 +45,7 @@
 
 
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 1024px) {
   /* start of large tablet styles */
   .display-main-item {
     max-width: 325px;

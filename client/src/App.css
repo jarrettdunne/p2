@@ -3,11 +3,7 @@
 
 * {
   font-family: 'Source Sans Pro', sans-serif;
-  /* margin: 0;
-  padding: 0; */
   color: #171111;
-  /* border: white dotted 1px; */
-  /* border: #171111 dotted 1px; */
 }
 
 
@@ -18,11 +14,21 @@ a {
 body {
   min-width: 325px;
   padding: auto;
+  
+}
+
+main {
+  background-color: #FFF0BF;
+}
+
+header {
   background-color: #556270;
 }
 
 footer {
   padding: 80px;
+  background-color: #556270;
+  
 }
 
 ul, ol {
@@ -36,14 +42,53 @@ ul, ol {
   flex-direction: row;
 }
 
-.navbar-recipe {
-  /* max-width: 350px; */
-}
-
 .nothing {
   color: white;
 }
 
 .display-main {
   background-color: #C7F464;
+}
+
+@media screen and (min-width:767px) {
+  main {
+    padding: 0 10%;
+  }
+  header {
+    padding: 0 7%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  main {
+    padding: 0 20%;
+  }
+  header {
+    padding: 0 7%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  /* start of large tablet styles */
+
+}
+  
+@media screen and (max-width: 767px) {
+/* start of medium tablet styles */
+  main {
+    padding: 0 20%;
+  }
+  header {
+    padding: 0 7%;
+  }
+}
+  
+@media screen and (max-width: 479px) {
+/* start of phone styles */
+  main {
+    padding: 0;
+  }
+  header {
+    padding: 0;
+  }
 }

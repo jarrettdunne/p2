@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useHistory, useParams } from "react-router-dom"
+import React, { useState } from 'react';
+import { useHistory } from "react-router-dom"
 
 import axios from "axios"
 
@@ -15,7 +15,6 @@ function FormAdd(props) {
   const [cook, setCook] = useState("")
   const [notes, setNotes] = useState("")
 
-  const params = useParams()
   const history = useHistory()
 
   let key = 0
@@ -51,9 +50,6 @@ function FormAdd(props) {
               onChange={(e) => setName(e.target.value)}
             />
           </div>
-          {/* <img className="vertical-line" src="https://i.imgur.com/5V9fhc5.png" title="source: imgur.com" />
-          <h2>adding</h2> */}
-          {/* <img className="vertical-line" src="https://i.imgur.com/5V9fhc5.png" title="source: imgur.com" /> */}
           <input
             type="submit"
             value="submit new"
@@ -120,7 +116,6 @@ function FormAdd(props) {
             <h3>notes</h3>
             <div className="directions-inputs-main">
               <textarea
-                required
                 name=""
                 id=""
                 cols="25"

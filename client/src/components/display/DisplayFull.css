@@ -21,7 +21,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   background-color: #C7F464;
-  padding: 0 125px;
+  padding: 0 15px;
 }
 
 .recipe-contents-content {

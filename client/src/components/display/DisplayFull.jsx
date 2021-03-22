@@ -19,15 +19,8 @@ function DisplayFull(props) {
 
   const params = useParams()
   const history = useHistory()
-  const recipe = props.recipes.find((i) => i.id === props.match.params.id)
   
   let key = 0
-
-  const renderId = () => {
-    if (props.recipes.length !== 0) {
-      return recipe.id
-    }
-  }
 
   useEffect(() => {
     if (params.id && props.recipes.length > 0) {
@@ -90,6 +83,18 @@ function DisplayFull(props) {
             {directions.split('\n').map((i) => (
               <p key={key++}>{i}</p>
             ))}
+          </div>
+        </div>
+        <div className="notes">
+          <h3>notes</h3>
+          <div className="recipe-contents-content">
+            {() => {
+              if (notes) {
+                notes.split('\n').map((i) => (
+                  <p key={key++}>{i}</p>
+                ))
+              }
+            }}
           </div>
         </div>
       </div>

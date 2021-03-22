@@ -44,46 +44,51 @@ function App() {
 
   return (
     <div>
-      <div className="navbar">
+      <header className="navbar">
         <Navbar recipes={data} toggleNav={toggleNav} />
-      </div>
-      <Route exact path="/">
-        <div>
-          <select id="type-list" onChange={(e) => setType(e.target.value)} >
-            <option selected>{"all"}</option>
-            {mealTypes.type.map((i) => (
-              <option value={i}>{i}</option>
-            ))}
-          </select>
-        </div>
-        <div className="display-main">
-          {data.map((i) => {
-            if (type === i.fields.type ) {
-              return (
+      </header>
+      <main>
+        <Route exact path="/">
+          <div>
+            <select id="type-list" onChange={(e) => setType(e.target.value)} >
+              <option>{"all"}</option>
+              {mealTypes.type.map((i) => (
+                <option value={i}>{i}</option>
+              ))}
+            </select>
+          </div>
+          <div className="display-main">
+            {data.map((i) => {
+              if (type === i.fields.type ) {
+                return (
+                  <Link to={`/recipe/${i.id}`}>
+                    <DisplayMain key={i.id} recipe={i} />
+                  </Link>
+                )
+              } else if (type === "all") {
+                return (
                 <Link to={`/recipe/${i.id}`}>
                   <DisplayMain key={i.id} recipe={i} />
                 </Link>
-              )
-            } else if (type === "all") {
+                )
+              }
               return (
-              <Link to={`/recipe/${i.id}`}>
-                <DisplayMain key={i.id} recipe={i} />
-              </Link>
+                <div></div>
               )
             }
-          }
-          )}
-        </div>
-      </Route>
-      <Route exact path="/recipe/:id" >
-        <DisplayFull recipes={data} />
-      </Route>
-      <Route exact path="/recipe/:id/edit">
-        <FormEdit recipes={data} setToggleFetch={setToggleFetch} />
-      </Route>
-      <Route exact path="/add">
-        <FormAdd setToggleFetch={setToggleFetch} />
-      </Route>
+            )}
+          </div>
+        </Route>
+        <Route exact path="/recipe/:id" >
+          <DisplayFull recipes={data} />
+        </Route>
+        <Route exact path="/recipe/:id/edit">
+          <FormEdit recipes={data} setToggleFetch={setToggleFetch} />
+        </Route>
+        <Route exact path="/add">
+          <FormAdd setToggleFetch={setToggleFetch} />
+        </Route>
+      </main>
       <Footer />
     </div>
   );
